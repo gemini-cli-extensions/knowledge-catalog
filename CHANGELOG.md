@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.4.0](https://github.com/gemini-cli-extensions/knowledge-catalog/compare/0.3.1...0.4.0) (2026-04-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* **renaming:** Renaming changes across all the files.  ([#93](https://github.com/gemini-cli-extensions/knowledge-catalog/issues/93))
+
+### Miscellaneous Chores
+
+* **renaming:** Renaming changes across all the files.  ([#93](https://github.com/gemini-cli-extensions/knowledge-catalog/issues/93)) ([6e9215a](https://github.com/gemini-cli-extensions/knowledge-catalog/commit/6e9215ae9d4dd6e3ccf37a041ba963304b0b0a42))
+
 ## [0.3.1](https://github.com/gemini-cli-extensions/knowledge-catalog/compare/0.3.0...0.3.1) (2026-03-20)
 
 
