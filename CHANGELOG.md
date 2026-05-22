@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/gemini-cli-extensions/knowledge-catalog/compare/0.5.0...0.5.1) (2026-05-22)
+
+
+### Features
+
+* **deps:** update dependency googleapis/mcp-toolbox to v1.3.0 ([#109](https://github.com/gemini-cli-extensions/knowledge-catalog/issues/109)) ([02e9214](https://github.com/gemini-cli-extensions/knowledge-catalog/commit/02e92142f70ee05a129149f118b315c72dc02a92))
+
 ## [0.5.0](https://github.com/gemini-cli-extensions/knowledge-catalog/compare/0.4.0...0.5.0) (2026-04-16)
 
 

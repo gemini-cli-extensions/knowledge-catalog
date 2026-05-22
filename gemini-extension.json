@@ -1,6 +1,6 @@
 {
   "name": "knowledge-catalog",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Connect to Knowledge Catalog (formerly known as Dataplex) to discover, manage, monitor, and govern data and AI artifacts across your data platform",
   "contextFileName": "KNOWLEDGE_CATALOG.md",
   "settings": [
