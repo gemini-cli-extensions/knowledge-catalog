@@ -150,16 +150,10 @@ In your terminal, set your environment vars as described in the [configuration s
 claude
 ```
 
-**3. Add the marketplace:**
+**3. Install the plugin:**
 
 ```bash
-/plugin marketplace add https://github.com/gemini-cli-extensions/knowledge-catalog.git#0.5.2
-```
-
-**4. Install the plugin:**
-
-```bash
-/plugin install knowledge-catalog@knowledge-catalog-marketplace
+/plugin install knowledge-catalog@claude-plugins-official
 ```
 
 _(Tip: Run `/plugin list` inside Claude Code to verify the plugin is active, or `/reload-plugins` if you just installed it.)_
