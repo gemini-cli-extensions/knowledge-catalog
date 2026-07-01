@@ -71,8 +71,8 @@ For the latest version, check the [releases page][releases].
 <summary id="antigravity">Antigravity</summary>
 
 You can use either of these two agents for Antigravity:
-- [Antigravity CLI](https://github.com/google-gemini/gemini-cli) version **v0.5.2** or higher
-- [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v0.5.2** or higher.
+- [Antigravity CLI](https://github.com/google-gemini/gemini-cli) version **v0.5.3** or higher
+- [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v0.5.3** or higher.
 
 <blockquote>
 💡 <strong>Tip — Migrating from Gemini CLI?</strong><br>
@@ -91,7 +91,7 @@ See <a href="https://antigravity.google/docs/gcli-migration">Migrating from Gemi
 **1. Clone the Repo:**
 
 ```bash
-git clone --branch 0.5.2 https://github.com/gemini-cli-extensions/knowledge-catalog.git
+git clone --branch 0.5.3 https://github.com/gemini-cli-extensions/knowledge-catalog.git
 ```
 
 **2. Install the skills:**
@@ -182,7 +182,7 @@ You can install skills using the `npx skills` command.
 Run the following command in your terminal to automatically download and register the skills:
 
 ```bash
-npx skills add https://github.com/gemini-cli-extensions/knowledge-catalog/tree/0.5.2
+npx skills add https://github.com/gemini-cli-extensions/knowledge-catalog/tree/0.5.3
 ```
 
 For detailed info check out the [Skills npm package](https://www.npmjs.com/package/skills).
