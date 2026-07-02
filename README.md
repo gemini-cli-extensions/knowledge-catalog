@@ -71,8 +71,8 @@ For the latest version, check the [releases page][releases].
 <summary id="antigravity">Antigravity</summary>
 
 You can use either of these two agents for Antigravity:
-- [Antigravity CLI](https://github.com/google-gemini/gemini-cli) version **v0.5.2** or higher
-- [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v0.5.2** or higher.
+- [Antigravity CLI](https://github.com/google-gemini/gemini-cli) version **v0.5.3** or higher
+- [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v0.5.3** or higher.
 
 <blockquote>
 💡 <strong>Tip — Migrating from Gemini CLI?</strong><br>
@@ -91,7 +91,7 @@ See <a href="https://antigravity.google/docs/gcli-migration">Migrating from Gemi
 **1. Clone the Repo:**
 
 ```bash
-git clone --branch 0.5.2 https://github.com/gemini-cli-extensions/knowledge-catalog.git
+git clone --branch 0.5.3 https://github.com/gemini-cli-extensions/knowledge-catalog.git
 ```
 
 **2. Install the skills:**
@@ -113,28 +113,16 @@ _(Tip: Antigravity 2.0 automatically discovers skills in these directories at th
 
 #### Antigravity CLI
 
-**1. Clone the Repo:**
+You can install plugins directly from a remote GitHub repository.
+
+**1. Install the plugin:**
 
 ```bash
-git clone --branch 0.5.2 https://github.com/gemini-cli-extensions/knowledge-catalog.git
+agy plugin install https://github.com/gemini-cli-extensions/knowledge-catalog
 ```
 
-**2. Install the skills:**
-
-Choose a location for the skills:
-- **Global (all workspaces):** `~/.gemini/antigravity-cli/skills/`
-- **Workspace-specific:** `<workspace-root>/.agents/skills/`
-
-Copy the skill folders from the cloned repository's `skills/` directory to your chosen location:
-
-```bash
-cp -R knowledge-catalog/skills/* ~/.gemini/antigravity-cli/skills/
-```
-
-**3. Set env vars:**
+**2. Set env vars:**
 Set your environment vars as described in the [configuration section](#configuration).
-
-_(Tip: Antigravity CLI automatically discovers skills in these directories at the start of a session. You can verify they are active by running the `/skills` command in your active session.)_
 
 </details>
 
@@ -163,49 +151,25 @@ _(Tip: Run `/plugin list` inside Claude Code to verify the plugin is active, or 
 <details>
 <summary id="codex">Codex</summary>
 
-**1. Clone the Repo:**
+**1. Install marketplace:**
 
 ```bash
-git clone --branch 0.5.2 git@github.com:gemini-cli-extensions/knowledge-catalog.git
+codex plugin marketplace add GoogleCloudPlatform/data-agent-kit
 ```
 
 **2. Install the plugin:**
 
 ```bash
-mkdir -p ~/.codex/plugins
-cp -R /absolute/path/to/knowledge-catalog ~/.codex/plugins/knowledge-catalog
+codex plugin install knowledge-catalog@data-agent-kit
 ```
 
 **3. Set env vars:**
 Enter your environment vars as described in the [configuration section](#configuration).
 
-**4. Create or update marketplace.json:**
-`~/.agents/plugins/marketplace.json`
-
-```json
-{
-  "name": "my-data-cloud-google-marketplace",
-  "interface": {
-    "displayName": "Google Data Cloud Skills"
-  },
-  "plugins": [
-    {
-      "name": "knowledge-catalog",
-      "source": {
-        "source": "local",
-        "path": "./plugins/knowledge-catalog"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Data Governance"
-    }
-  ]
-}
+**4. (Optional) Update the marketplace:**
+```sh
+codex plugin marketplace upgrade data-agent-kit
 ```
-
-_(Tip: Run `codex plugin list` or use the `/plugins` interactive menu to verify your installed plugins.)_
 
 </details>
 
@@ -218,7 +182,7 @@ You can install skills using the `npx skills` command.
 Run the following command in your terminal to automatically download and register the skills:
 
 ```bash
-npx skills add https://github.com/gemini-cli-extensions/knowledge-catalog/tree/0.5.2
+npx skills add https://github.com/gemini-cli-extensions/knowledge-catalog/tree/0.5.3
 ```
 
 For detailed info check out the [Skills npm package](https://www.npmjs.com/package/skills).
