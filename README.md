@@ -160,7 +160,7 @@ codex plugin marketplace add GoogleCloudPlatform/data-agent-kit
 **2. Install the plugin:**
 
 ```bash
-codex plugin install knowledge-catalog@data-agent-kit
+codex plugin add knowledge-catalog@data-agent-kit
 ```
 
 **3. Set env vars:**
