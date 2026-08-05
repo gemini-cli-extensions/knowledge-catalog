@@ -1,4 +1,5 @@
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "knowledge-catalog",
   "version": "0.5.3",
   "description": "Connect to Knowledge Catalog to discover, manage, monitor, and govern data and AI artifacts across your data platform",
@@ -7,7 +8,12 @@
     "email": "data-cloud-ai-integrations@google.com"
   },
   "homepage": "https://cloud.google.com/dataplex",
-  "license": "Apache-2.0",
   "repository": "https://github.com/gemini-cli-extensions/knowledge-catalog",
-  "skills": "./skills/"
+  "license": "Apache-2.0",
+  "keywords": [
+    "dataplex",
+    "knowledge-catalog",
+    "google-cloud",
+    "data-governance"
+  ]
 }
