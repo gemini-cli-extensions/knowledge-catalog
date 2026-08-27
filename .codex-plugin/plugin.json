@@ -15,7 +15,6 @@
     "google-cloud",
     "data-governance"
   ],
-  "skills": "./skills/",
   "interface": {
     "displayName": "Knowledge Catalog",
     "shortDescription": "Interact with Knowledge Catalog to discover and manage data assets.",
@@ -28,5 +27,6 @@
     "defaultPrompt": [
       "Your primary objective is to help discover, organize and manage metadata related to data assets."
     ]
-  }
+  },
+  "mcpServers": "./.codex-plugin/.mcp.json"
 }

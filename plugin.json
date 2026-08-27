@@ -15,5 +15,35 @@
     "knowledge-catalog",
     "google-cloud",
     "data-governance"
-  ]
+  ],
+  "extensions": {
+    "com.google.cloud.data.agent-plugins": {
+      "config": [
+        {
+          "key": "DATAPLEX_PROJECT",
+          "title": "Project ID",
+          "description": "ID of the Google Cloud project"
+        }
+      ],
+      "gemini": {
+        "mcpServerName": "dataplex",
+        "contextFileName": "KNOWLEDGE_CATALOG.md"
+      },
+      "codex": {
+        "interface": {
+          "displayName": "Knowledge Catalog",
+          "shortDescription": "Interact with Knowledge Catalog to discover and manage data assets.",
+          "developerName": "Google LLC",
+          "category": "Data Governance",
+          "capabilities": [
+            "Read",
+            "Write"
+          ],
+          "defaultPrompt": [
+            "Your primary objective is to help discover, organize and manage metadata related to data assets."
+          ]
+        }
+      }
+    }
+  }
 }
