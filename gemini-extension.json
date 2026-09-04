@@ -1,7 +1,19 @@
 {
   "name": "knowledge-catalog",
   "version": "0.5.3",
-  "description": "Connect to Knowledge Catalog (formerly known as Dataplex) to discover, manage, monitor, and govern data and AI artifacts across your data platform",
+  "description": "Connect to Knowledge Catalog to discover, manage, monitor, and govern data and AI artifacts across your data platform",
+  "mcpServers": {
+    "dataplex": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@toolbox-sdk/server@1.9.0",
+        "--prebuilt",
+        "dataplex",
+        "--stdio"
+      ]
+    }
+  },
   "contextFileName": "KNOWLEDGE_CATALOG.md",
   "settings": [
     {

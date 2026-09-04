@@ -3,7 +3,7 @@
 > [!NOTE]
 > Currently in beta (pre-v1.0), and may see breaking changes until the first stable release (v1.0).
 
-This repository provides a set of agent skills to interact with [Knowledge Catalog](https://cloud.google.com/dataplex/docs) (formerly known as Dataplex) instances. These skills can be used with various AI agents, including [Antigravity](https://antigravity.google/), [Claude Code](https://claude.com/product/claude-code) and [Codex](https://developers.openai.com/codex), to discover, manage, monitor, and govern data and AI artifacts across your data platform using natural language prompts.
+This repository packages [MCP Toolbox](https://github.com/googleapis/mcp-toolbox)'s prebuilt `dataplex` server as a plugin/extension to interact with [Knowledge Catalog](https://cloud.google.com/dataplex/docs) (formerly known as Dataplex) instances. It can be used with various AI agents, including [Antigravity](https://antigravity.google/), [Claude Code](https://claude.com/product/claude-code) and [Codex](https://developers.openai.com/codex), to discover, manage, monitor, and govern data and AI artifacts across your data platform using natural language prompts.
 
 > [!IMPORTANT]
 > **We Want Your Feedback!**
@@ -14,7 +14,7 @@ This repository provides a set of agent skills to interact with [Knowledge Catal
 
 ## Table of Contents
 
-- [Why Use Knowledge Catalog Agent Skills?](#why-use-knowledge-catalog-agent-skills)
+- [Why Use Knowledge Catalog?](#why-use-knowledge-catalog)
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
   - [Configuration](#configuration)
@@ -22,14 +22,14 @@ This repository provides a set of agent skills to interact with [Knowledge Catal
     - [Antigravity](#antigravity)
     - [Claude Code](#claude-code)
     - [Codex](#codex)
-- [Installing using open agent skills tool](#installing-using-open-agent-skills-tool)
 - [Installing via a compatible Agent Plugins client](#installing-via-a-compatible-agent-plugins-client)
 - [Usage Examples](#usage-examples)
-- [Supported Skills](#supported-skills)
+- [Available Tools](#available-tools)
+- [Generating Skills Instead](#generating-skills-instead)
 - [Additional Agent Skills](#additional-agent-skills)
 - [Troubleshooting](#troubleshooting)
 
-## Why Use Knowledge Catalog Agent Skills?
+## Why Use Knowledge Catalog?
 
 * **Natural Language Management:** Stop wrestling with complex commands. Explore schemas and query data by describing what you want in plain English.
 * **Seamless Workflow:** Integrates seamlessly into your AI agent's environment. No need to constantly switch contexts for common database tasks.
@@ -45,6 +45,7 @@ Before you begin, ensure you have the following:
      - [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v2.0.0** or higher.
   - [Claude Code](https://claude.com/product/claude-code) version **v2.1.94** or higher.
   - [Codex](https://developers.openai.com/codex) **v0.117.0** or higher.
+- [Node.js](https://nodejs.org/) — the MCP server runs via `npx`.
 - A Google Cloud project with the **Dataplex API** enabled.
 - Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment.
 - IAM Permissions:
@@ -61,7 +62,7 @@ Please keep these env vars handy during the installation process:
 
 ### Installation & Usage
 
-To start interacting with your database, install the skills for your preferred AI agent, then launch the agent and use natural language to ask questions or perform tasks.
+To start interacting with your database, install the extension for your preferred AI agent, then launch the agent and use natural language to ask questions or perform tasks.
 
 For the latest version, check the [releases page][releases].
 
@@ -73,8 +74,8 @@ For the latest version, check the [releases page][releases].
 <summary id="antigravity">Antigravity</summary>
 
 You can use either of these two agents for Antigravity:
-- [Antigravity CLI](https://github.com/google-gemini/gemini-cli) version **v0.5.3** or higher
-- [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v0.5.3** or higher.
+- [Antigravity CLI](https://github.com/google-gemini/gemini-cli) version **v1.6.0** or higher
+- [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v2.0.0** or higher.
 
 <blockquote>
 💡 <strong>Tip — Migrating from Gemini CLI?</strong><br>
@@ -90,28 +91,18 @@ See <a href="https://antigravity.google/docs/gcli-migration">Migrating from Gemi
 
 #### Antigravity 2.0 (IDE)
 
-**1. Clone the Repo:**
+**1. Install the plugin:**
+
+Install the plugin directly from the remote GitHub repository:
 
 ```bash
-git clone --branch 0.5.3 https://github.com/gemini-cli-extensions/knowledge-catalog.git
+agy plugin install https://github.com/gemini-cli-extensions/knowledge-catalog
 ```
 
-**2. Install the skills:**
-
-Choose a location for the skills:
-- **Global (all workspaces):** `~/.gemini/antigravity/skills/`
-- **Workspace-specific:** `<workspace-root>/.agents/skills/`
-
-Copy the skill folders from the cloned repository's `skills/` directory to your chosen location:
-
-```bash
-cp -R knowledge-catalog/skills/* ~/.gemini/antigravity/skills/
-```
-
-**3. Set env vars:**
+**2. Set env vars:**
 Set your environment vars as described in the [configuration section](#configuration).
 
-_(Tip: Antigravity 2.0 automatically discovers skills in these directories at the start of a session. You can verify they are active by running the `/skills` command in your active session.)_
+_(Tip: You can verify the MCP server is active by running the `/mcp` command in your active session.)_
 
 #### Antigravity CLI
 
@@ -146,8 +137,7 @@ claude
 /plugin install knowledge-catalog@claude-plugins-official
 ```
 
-_(Tip: Run `/plugin list` inside Claude Code to verify the plugin is active, or `/reload-plugins` if you just installed it.)_
-
+_(Tip: Run `/plugin list` inside Claude Code to verify the plugin is active, or `/reload-plugins` if you just installed it.)
 </details>
 
 <details>
@@ -175,23 +165,7 @@ codex plugin marketplace upgrade data-agent-kit
 
 </details>
 
-## Installing using [open agent skills tool](https://github.com/vercel-labs/skills)
-
-You can install skills using the `npx skills` command.
-
-**1. Install the skills:**
-
-Run the following command in your terminal to automatically download and register the skills:
-
-```bash
-npx skills add https://github.com/gemini-cli-extensions/knowledge-catalog/tree/0.5.3
-```
-
-For detailed info check out the [Skills npm package](https://www.npmjs.com/package/skills).
-
-**2. Set env vars:**
-Set your environment vars as described in the [configuration section](#configuration).
-
+## Installing via a compatible Agent Plugins client
 ## Installing via a compatible Agent Plugins client
 
 This repository is a valid [Agent Plugins](https://github.com/agentplugins/agent-plugins-spec) (v1) plugin. Any [Agent Plugins–compatible client](https://agent-plugins.org/compatible-clients) can install it directly using its own built-in plugin command — no extra tooling required — by pointing at this repository:
@@ -219,11 +193,38 @@ Interact with Knowledge Catalog using natural language:
 * **Perform Ad-hoc Analysis:**
   * "Calculate the total 'customer orders' this month."
 
-## Supported Skills
+## Available Tools
 
-The following skills are available in this repository:
+The tools come from MCP Toolbox's prebuilt `dataplex` server, grouped into toolsets:
 
-- [Knowledge Catalog Discovery](./skills/knowledge-catalog-discovery/SKILL.md) - Use these skills when you need to discover and explore data assets in the Knowledge Catalog. It allows you to search for entries, lookup specific metadata, and explore aspect types to understand your data platform's assets.
+
+
+For the full, up-to-date list, see the [`dataplex` prebuilt config](https://github.com/googleapis/mcp-toolbox/blob/main/internal/prebuiltconfigs/tools/dataplex.yaml)
+in the MCP Toolbox repository.
+
+## Generating Skills Instead
+
+The tool-backed skills this plugin used to ship were generated from the same prebuilt
+toolsets. If your agent lacks deferred tool loading, or you prefer skills, regenerate
+them with the script in this repository:
+
+```bash
+VERSION=<toolbox version> ./.github/scripts/generate_skills.sh
+```
+
+Use the toolbox version pinned in [`mcp.json`](./mcp.json). A single toolset, without
+the script:
+
+```bash
+npx @toolbox-sdk/server@<toolbox version> --prebuilt dataplex skills-generate \
+  --name "<skill name>" \
+  --toolset "<toolset>" \
+  --description "<what it is for>"
+```
+
+The generated scripts call the toolbox through `npx`, so no binary download is needed.
+See [Generate Agent Skills](https://github.com/googleapis/mcp-toolbox#generate-agent-skills)
+in the MCP Toolbox repository.
 
 ## Additional Agent Skills
 
