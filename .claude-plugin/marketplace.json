@@ -5,7 +5,7 @@
     "email": "data-cloud-ai-integrations@google.com"
   },
   "metadata": {
-    "description": "Agent skills for Knowledge Catalog to discover, manage, and monitor data and AI artifacts."
+    "description": "Connect to Knowledge Catalog to discover, manage, monitor, and govern data and AI artifacts across your data platform."
   },
   "plugins": [
     {
