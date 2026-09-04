@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.4](https://github.com/gemini-cli-extensions/knowledge-catalog/compare/0.5.3...0.5.4) (2026-09-04)
+
+
+### Features
+
+* **plugin:** migrate from generated skills to the prebuilt MCP server ([#132](https://github.com/gemini-cli-extensions/knowledge-catalog/issues/132)) ([930d73c](https://github.com/gemini-cli-extensions/knowledge-catalog/commit/930d73cfbb8e0637d79cb335ff0b8d80af383bd8))
+* **plugin:** support agent plugin spec ([#130](https://github.com/gemini-cli-extensions/knowledge-catalog/issues/130)) ([6c92f3d](https://github.com/gemini-cli-extensions/knowledge-catalog/commit/6c92f3d7636d1bddb2ef0bbb05bc4af446845401))
+
 ## [0.5.3](https://github.com/gemini-cli-extensions/knowledge-catalog/compare/0.5.2...0.5.3) (2026-07-01)
 
 
