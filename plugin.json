@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "knowledge-catalog",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Connect to Knowledge Catalog to discover, manage, monitor, and govern data and AI artifacts across your data platform",
   "author": {
     "name": "Google LLC",
